@@ -1,0 +1,27 @@
+---
+swagger: "2.0"
+info:
+  description: "A very simple flask hello world app"
+  version: "0.0.1"
+  title: "Flask swagger hello world"
+paths:
+  /hello_world:
+    get:
+      summary: "returns a hello world json"
+      description: "A simple hello world json here"
+      operationId: "get_hello_world"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Successful get call"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+definitions:
+  inline_response_200:
+    properties:
+      value:
+        type: "string"
+        example: "hello world"
